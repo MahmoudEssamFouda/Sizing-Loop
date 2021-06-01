@@ -24,18 +24,25 @@ from SUAVE.Methods.Geometry.Two_Dimensional.Planform import wing_planform
 from SUAVE.Methods.Propulsion.turbofan_sizing import turbofan_sizing
 from SUAVE.Methods.Aerodynamics.Fidelity_Zero.Lift.compute_max_lift_coeff import compute_max_lift_coeff
 from SUAVE.Methods.Geometry.Two_Dimensional.Cross_Section.Propulsion.compute_turbofan_geometry import compute_turbofan_geometry
+import sys, os
+current_directory_path = os.path.dirname(__file__)
+sys.path.append(current_directory_path)
 from SUAVE.Sizing.Sizing_Loop import Sizing_Loop
 from SUAVE.Optimization.Nexus import Nexus
 from SUAVE.Sizing.write_sizing_residuals import write_sizing_residuals
 from SUAVE.Sizing.read_sizing_residuals import read_sizing_residuals
 from SUAVE.Sizing.write_sizing_outputs import write_sizing_outputs
 
-import sys, os
-sys.path.append('../noise_optimization') #import structure from noise_optimization
-sys.path.append('../Vehicles')
+
+sys.path.append('D:\\Project_tools\\SUAVE\\regression\\scripts\\noise_optimization') #import structure from noise_optimization
+sys.path.append('D:\\Project_tools\\SUAVE\\regression\\scripts\\Vehicles')
 import Analyses
 import Missions
 from Boeing_737 import vehicle_setup, configs_setup
+
+sys.path.remove(current_directory_path)
+sys.path.remove('D:\\Project_tools\\SUAVE\\regression\\scripts\\noise_optimization')
+sys.path.remove('D:\\Project_tools\\SUAVE\\regression\\scripts\\Vehicles')
 matplotlib.interactive(True)
 # ----------------------------------------------------------------------
 #   Main
